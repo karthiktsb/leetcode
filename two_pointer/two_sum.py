@@ -4,6 +4,7 @@ def two_sum(nums, target):
 
     while left < right:
         sum = nums[left] + nums[right]
+
         if sum == target:
             return [left, right]
         else:
@@ -18,3 +19,4 @@ def two_sum(nums, target):
 if __name__ == '__main__':
     print(two_sum([2, 7, 11, 15], 9))
     print(two_sum([2, 7, 11, 15], 26))
+    print(two_sum([2, 7, 11, 15], 29))

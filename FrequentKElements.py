@@ -19,3 +19,14 @@ def top_k_frequent(nums, k):
 
 if __name__ == '__main__':
     print(top_k_frequent([1,1,2,2,1,1,3,3,2,2,6], 2))
+
+    d = {1: 4, 2: 5, 3: 4}
+    topk = 4
+    res = [k for k, v in d.items() if v == topk]
+    res1 = list(map(lambda x: x * 2, res))
+    res2 = list(filter(lambda x: x > 2, res))
+    print(res)
+    print(res1)
+    print(res2)
+
+

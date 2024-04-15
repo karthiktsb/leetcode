@@ -5,8 +5,7 @@ def add_numbers(head1: ListNode, head2: ListNode) -> ListNode:
     node1 = head1
     node2 = head2
     result = ListNode(0)
-    temp = ListNode(0)
-    result.next = temp
+    temp = result
     carry = 0
 
     while node1 or node2:
@@ -14,12 +13,14 @@ def add_numbers(head1: ListNode, head2: ListNode) -> ListNode:
             summed = node1.value + node2.value + carry
             node1 = node1.next
             node2 = node2.next
-        elif node1:
-            summed = node1.value + carry
-            node1 = node1.next
         else:
-            summed = node2.value + carry
-            node2 = node2.next
+            if node1:
+                summed = node1.value + carry
+                node1 = node1.next
+            else:
+                if node2:
+                    summed = node2.value + carry
+                    node2 = node2.next
 
         if summed > 9:
             carry = summed // 10
@@ -30,11 +31,10 @@ def add_numbers(head1: ListNode, head2: ListNode) -> ListNode:
         temp.next = ListNode(summed)
         temp = temp.next
 
-
     if carry > 0:
         temp.next = ListNode(carry)
 
-    return result.next.next
+    return result.next
 
 
 if __name__ == '__main__':

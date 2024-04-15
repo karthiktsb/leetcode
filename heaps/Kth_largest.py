@@ -2,18 +2,19 @@ import heapq
 
 
 def kth_largest(nums: list[int], k: int) -> int:
-    return heapq.nlargest(k, nums)[::-1][0]
+    return heapq.nlargest(k, nums)
 
 
 def kth_chatgpt(nums: list[int], k: int) -> int:
     min_heap = nums[:k]
     heapq.heapify(min_heap)
 
-    for num in nums[k:]:
+    for num in nums:
         heapq.heappush(min_heap, num)
         heapq.heappop(min_heap)
 
-    return min_heap[0]
+    return min_heap
+
 
 
 def func(l1):
@@ -53,3 +54,9 @@ if __name__ == '__main__':
     dict1 = {"b": 1, "c": 2, "a": 5}
 
     print([k for (k, v) in dict1.items() if v >= 2])
+
+    nums1 = [3,32,11,21,1,22,3,4]
+
+    heapq.heapify(nums1)
+
+    print(nums1)

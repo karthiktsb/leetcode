@@ -1,20 +1,21 @@
 def combinationSum(candidates: list[int], target: int) -> list[list[int]]:
     res = []
 
-    def dfs(path: list[int], index: int, total: int):
-        if index >= len(candidates) or total > target:
+    def dfs(path: list[int], index: int, summed: int):
+        if index >= len(candidates) or summed > target:
             return
 
-        if total == target:
+        if summed == target:
             res.append(path.copy())
             return
 
         path.append(candidates[index])
-        dfs(path, index, total + candidates[index])
+        dfs(path, index, summed + candidates[index])
         path.pop()
-        dfs(path, index + 1, total)
+        dfs(path, index + 1, summed)
 
-    dfs([], 0, 0)
+
+    dfs([], 0 , 0)
     return res
 
 

@@ -9,7 +9,7 @@ class MyClass:
         return self.instance_count
 
     def print(self):
-        print(self.instance_count)
+        print(MyClass.class_count)
         return
 
     @classmethod
@@ -25,5 +25,5 @@ if __name__ == '__main__':
     print(cls1.get_instance_count())
     print(cls2.get_instance_count())
     print(cls3.get_instance_count())
-    print(cls1.print())
+    cls1.print()
     print(MyClass.get_class_count())

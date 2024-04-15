@@ -5,11 +5,10 @@ def coin_change(amount: int, coins: list[int]) -> int:
     for a in range(1, amount + 1):
         i = 0
         while i < len(coins) and a - coins[i] >= 0:
-            dp[a] = min(dp[a], 1 + dp[a - coins[i]])
+            dp[a] = min(dp[a], 1 + dp[ a - coins[i]])
             i += 1
-        print(dp)
 
-    if dp[amount] <= amount:
+    if dp[amount] < amount + 1:
         return dp[amount]
     else:
         return -1

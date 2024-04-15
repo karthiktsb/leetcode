@@ -29,4 +29,4 @@ def sliding_window_with_max(input: list[int], k: int) -> list[int]:
 
 if __name__ == '__main__':
     print(sliding_window_max([1, 3, -1, -3, 5, 3, 6, 7], 3))
-    print(sliding_window_with_max([1, 3, -1, -3, 5, 3, 6, 7], 3))
+    print(sliding_window_with_max([1, 3, -1, -3, 5, 3, 6, 7], 4))

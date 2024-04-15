@@ -5,11 +5,10 @@ def reorder_list(head: ListNode):
     fast, slow = head, head
 
     while fast and fast.next:
-        slow = slow.next
         fast = fast.next.next
+        slow = slow.next
 
-    curr = slow
-    prev = None
+    prev, curr = None, slow
 
     while curr:
         temp = curr.next
@@ -17,8 +16,8 @@ def reorder_list(head: ListNode):
         prev = curr
         curr = temp
 
-    first = head
     second = prev
+    first = head
 
     while second.next:
         temp1 = first.next
@@ -27,6 +26,8 @@ def reorder_list(head: ListNode):
         second.next = temp1
         first = temp1
         second = temp2
+
+
 
 if __name__ == '__main__':
     my_list = ListNode(1)
@@ -42,7 +43,3 @@ if __name__ == '__main__':
     while node:
         print(node.value)
         node = node.next
-
-
-
-

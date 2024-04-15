@@ -1,15 +1,16 @@
 def longest_seq(nums):
     res = 0
     for i in nums:
-        if (i - 1) not in nums:
+        if i - 1 not in nums:
             c = i
-            curSeq = 0
+            curseq = 0
             while c in nums:
-                curSeq += 1
                 c += 1
-            res = max(res, curSeq)
+                curseq += 1
+            res = max(curseq, res)
+
     return res
 
 
 if __name__ == '__main__':
-    print(longest_seq([99,100,4,200,1,3,2,103,104,102,101]))
+    print(longest_seq([99,100,4,200,1,3,2,103,104,102,101,105,106]))

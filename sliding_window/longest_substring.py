@@ -1,7 +1,7 @@
 def longest(s: str) -> int:
     seen = []
-    l, r = 0, 0
     max_length = 0
+    l, r = 0, 0
 
     while r < len(s):
         if s[r] not in seen:
@@ -14,5 +14,7 @@ def longest(s: str) -> int:
 
     return max_length
 
+
 if __name__ == '__main__':
     print(longest("abacdaefabm"))
+    print(longest("bacadnb"))

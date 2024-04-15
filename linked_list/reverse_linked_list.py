@@ -2,13 +2,13 @@ from list_node import ListNode
 
 
 def reverse(head: ListNode) -> ListNode:
-    prev, curr = None, head
+    prev, current = None, head
 
-    while curr:
-        temp = curr.next
-        curr.next = prev
-        prev = curr
-        curr = temp
+    while current:
+        temp = current.next
+        current.next = prev
+        prev = current
+        current = temp
 
     return prev
 

@@ -70,7 +70,13 @@ print(ds[2])
 print("END of DataSourceLazy class test")
 print("############" * 10)
 
-
+k = [1, 3, 5, 6]
+print('~~~~~~~')
+for i in k:
+    print(i)
+    if i in ds:
+        print(i)
+print('~~~~~~~')
 class LazyDataSource:
     def __init__(self, arr):
         self.arr = arr

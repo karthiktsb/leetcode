@@ -9,32 +9,36 @@ class BinaryTree:
         if self.head:
             node = self.head
             while node:
-                if value == node.value:
+                if node.value == value:
                     break
-                elif value > node.value:
+
+                if value > node.value:
                     if node.right:
                         node = node.right
                     else:
                         node.right = TreeNode(value)
+                        break
                 else:
                     if node.left:
                         node = node.left
                     else:
                         node.left = TreeNode(value)
+                        break
         else:
             self.head = TreeNode(value)
 
     def display(self):
-        def dfs(node: TreeNode):
+        def dfs(node):
             if node:
-                dfs(node.left)
-                print(node.value)
                 dfs(node.right)
+                print(node.value)
+                dfs(node.left)
 
         dfs(self.head)
 
     def get_head(self):
         return self.head
+
 
 if __name__ == '__main__':
     my_binary_tree = BinaryTree()

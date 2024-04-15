@@ -12,28 +12,27 @@ def merge_list(head1: ListNode, head2: ListNode) -> ListNode:
             node2 = node2.next
 
         temp = result
-        while node1 or node2:
-            if node1 and node2:
-                if node1.value <= node2.value:
-                    temp.next = node1
-                    node1 = node1.next
-                else:
-                    temp.next = node2
-                    node2 = node2.next
+        while node1 and node2:
+            if node1.value <= node2.value:
+                temp.next = node1
+                node1 = node1.next
             else:
-                if node1:
-                    temp.next = node1
-                    node1 = node1.next
-                else:
-                    temp.next = node2
-                    node2 = node2.next
+                temp.next = node2
+                node2 = node2.next
             temp = temp.next
+
+        if node1:
+            temp.next = node1
+        else:
+            temp.next = node2
+
         return result
     else:
         if head1:
             return head1
         else:
             return head2
+
 
 
 if __name__ == '__main__':
@@ -52,6 +51,13 @@ if __name__ == '__main__':
     merged = merge_list(my_list1, my_list2)
 
     node = merged
+    while node:
+        print(node.value)
+        node = node.next
+
+    my_list3 = ListNode(40)
+    merged1 = merge_list(None, my_list3)
+    node = merged1
     while node:
         print(node.value)
         node = node.next

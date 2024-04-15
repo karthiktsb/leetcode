@@ -4,8 +4,9 @@ def longest_palindrome(s: str) -> str:
     for i in range(len(s)):
         for l, r in ((i, i), (i, i + 1)):
             while l >= 0 and r < len(s) and s[l] == s[r]:
-                if r - l + 1 > len(res):
-                    res = s[l: r + 1]
+                temp = s[l: r + 1]
+                if len(temp) > len(res):
+                    res = temp
                 l -= 1
                 r += 1
 
@@ -13,4 +14,4 @@ def longest_palindrome(s: str) -> str:
 
 
 if __name__ == '__main__':
-    print(longest_palindrome("xabcddcbay"))
+    print(longest_palindrome("xabcddcbaxy"))

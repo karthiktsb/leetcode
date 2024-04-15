@@ -1,11 +1,12 @@
 import sys
 
+
 def max_sum_array(nums: list[int]) -> int:
     result = 0
-    max_sum = -sys.maxsize - 1
+    max_sum = sys.maxsize * -1
 
-    for i in nums:
-        result += i
+    for n in nums:
+        result += n
         max_sum = max(max_sum, result)
         if result < 0:
             result = 0

@@ -7,8 +7,8 @@ def is_n_straight_hand(hand: list[int], group_size: int) -> bool:
 
     hold = defaultdict(int)
 
-    for i in hand:
-        hold[i] = hold[i] + 1
+    for n in hand:
+        hold[n] = hold[n] + 1
 
     groups = len(hand) // group_size
 

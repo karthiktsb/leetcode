@@ -1,8 +1,8 @@
 def count_palindome(s: str) -> int:
     res = 0
 
-    def count_palindrome(l, r):
-        nonlocal s, res
+    def count_palindrome(l: int, r: int):
+        nonlocal res, s
         while l >= 0 and r < len(s) and s[l] == s[r]:
             res += 1
             l -= 1
@@ -12,8 +12,8 @@ def count_palindome(s: str) -> int:
         for l, r in ((i, i), (i, i + 1)):
             count_palindrome(l, r)
 
-
     return res
+
 
 def list_palindome(s: str) -> list[str]:
     res = []

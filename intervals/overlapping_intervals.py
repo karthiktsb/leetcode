@@ -3,8 +3,8 @@ def eraseOverlapIntervals(intervals: list[list[int]]) -> int:
     prev_end = intervals[0][1]
     result = 0
 
-    for i in intervals[1:]:
-        start, end = i[0], i[1]
+    for i in range(1, len(intervals)):
+        start, end = intervals[i][0], intervals[i][1]
 
         if start >= prev_end:
             prev_end = end

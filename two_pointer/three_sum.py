@@ -5,12 +5,11 @@ def three_sum(nums, target):
     for i in range(len(nums) - 2):
         if i == 0 or nums_sorted[i] != nums_sorted[i - 1]:
             left = i + 1
-            right = len(nums) - 1
+            right = len(nums_sorted) - 1
 
             while left < right:
-                sum = nums_sorted[i] + nums_sorted[left] + nums_sorted[right]
-
-                if sum == target:
+                summed = nums_sorted[i] + nums_sorted[left] + nums_sorted[right]
+                if summed == target:
                     result.append([nums_sorted[i], nums_sorted[left], nums_sorted[right]])
 
                     while nums_sorted[left] == nums_sorted[left + 1]:
@@ -22,7 +21,7 @@ def three_sum(nums, target):
                     left += 1
                     right -= 1
                 else:
-                    if sum < target:
+                    if summed < target:
                         left += 1
                     else:
                         right -= 1
@@ -32,4 +31,5 @@ def three_sum(nums, target):
 
 if __name__ == '__main__':
     print(three_sum([-1,0,1,2,-1,-4], 0))
-    print(three_sum([1,-1,-1,0], 0))
+    print(three_sum([1,-1,-1,0], 18))
+    print(three_sum([1, -1, -1, 0],-2))

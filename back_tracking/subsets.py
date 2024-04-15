@@ -7,12 +7,12 @@ class Solution:
                 res.append(path.copy())
                 return
 
-            dfs(path.copy(), index + 1)
             path.append(nums[index])
+            dfs(path, index + 1)
+            path.pop()
             dfs(path, index + 1)
 
         dfs([], 0)
-
         return res
 
 

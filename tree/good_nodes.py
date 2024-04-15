@@ -3,15 +3,16 @@ from tree_node import TreeNode
 
 
 def good_nodes(node: TreeNode):
-    def dfs(curr: TreeNode, max_value: int):
+
+    def dfs(curr: TreeNode, max_val: int):
         if curr:
-            current = 1 if curr.value >= max_value else 0
-            current_max = max(curr.value, max_value)
-            return current + dfs(curr.left, current_max) + dfs(curr.right, current_max)
+            current = 1 if curr.value >= max_val else 0
+            curr_max = max(curr.value, max_val)
+            return current + dfs(curr.left, curr_max) + dfs(curr.right, curr_max)
         else:
             return 0
 
-    return dfs(node, node.value)
+    return dfs(node, 0)
 
 
 if __name__ == '__main__':
@@ -27,6 +28,7 @@ if __name__ == '__main__':
     left1.left = left2
     right1.left = right2
     right1.right = right3
+    right1.right.right = TreeNode(0)
 
     node1 = my_tree
 

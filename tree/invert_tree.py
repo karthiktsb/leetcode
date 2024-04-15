@@ -2,16 +2,16 @@ from binary_tree import BinaryTree
 from tree_node import TreeNode
 
 
-def invert_tree(node: TreeNode):
-    def dfs(curr: TreeNode):
-        if curr:
-            dfs(curr.left)
-            dfs(curr.right)
-            temp = curr.right
-            curr.right = curr.left
-            curr.left = temp
+def invert_tree(head: TreeNode):
+    def dfs(node: TreeNode):
+        if node:
+            dfs(node.left)
+            dfs(node.right)
+            temp = node.right
+            node.right = node.left
+            node.left = temp
 
-    dfs(node)
+    dfs(head)
 
 
 if __name__ == '__main__':

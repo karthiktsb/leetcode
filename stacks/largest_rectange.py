@@ -12,16 +12,18 @@ def largest_rectangle_area(heights: list[int]) -> int:
             max_area = max(max_area, height * width)
         stack.append(i)
 
-    while stack and heights[i] < heights[stack[-1]]:
-        height = heights[stack[-1]]
+    while stack:
+        height = heights[stack.pop()]
         if stack:
-            width = len(heights) - stack[-1] -1
+            width = len(heights) - stack[-1] - 1
         else:
             width = len(heights)
         max_area = max(max_area, height * width)
 
     return max_area
 
+
 if __name__ == '__main__':
     print(largest_rectangle_area([2,1,5,6,2,3]))
+    print(largest_rectangle_area([2, 4]))
 

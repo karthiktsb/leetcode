@@ -1,15 +1,14 @@
 def daily_temp(temps: list[int]) -> list[int]:
-    result = [0] * len(temps)
+    res = [0] * len(temps)
     stack = []
 
     for i in range(len(temps)):
-        if stack and temps[i] > stack[-1]:
-            while stack and temps[i] > temps[stack[-1]]:
-                index = stack.pop()
-                result[index] = i - index
+        while stack and temps[i] > temps[stack[-1]]:
+            index = stack.pop()
+            res[index] = i - index
         stack.append(i)
 
-    return result
+    return res
 
 
 if __name__ == '__main__':

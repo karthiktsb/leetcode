@@ -2,7 +2,7 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
     res = []
     intervals.sort(key=lambda x: x[0])
 
-    def check_interval(a: list[int], b: list[int]):
+    def merge(a: list[int], b: list[int]):
         if a[0] >= b[0]:
             if a[0] <= b[1]:
                 return [[b[0], max(a[1], b[1])]]
@@ -10,20 +10,19 @@ def merge(intervals: list[list[int]]) -> list[list[int]]:
                 return [b, a]
         else:
             if b[0] <= a[1]:
-                return [[a[0], max(b[1], a[1])]]
+                return [[a[0], max(a[1], b[1])]]
             else:
                 return [a, b]
 
-    if len(intervals) > 0:
+    if intervals:
         res.append(intervals[0])
 
     for i in intervals:
-        current = check_interval(i, res[-1])
+        current = merge(i, intervals[-1])
         res.pop()
         res.extend(current)
 
     return res
-
 
 
 if __name__ == '__main__':

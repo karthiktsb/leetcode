@@ -4,17 +4,16 @@ from collections import defaultdict
 
 
 def level_order(node: TreeNode):
-    res = defaultdict(list)
+    result = defaultdict(list)
 
     def dfs(curr: TreeNode, level: int):
         if curr:
-            res[level].append(curr.value)
+            result[level].append(curr.value)
             dfs(curr.left, level + 1)
             dfs(curr.right, level + 1)
 
     dfs(node, 0)
-
-    return res
+    return result.values()
 
 
 if __name__ == '__main__':

@@ -1,14 +1,14 @@
 def fibinocci(n: int):
-    n1, n2 = 0, 1
+    fib = [0, 1]
 
-    print(n1)
-    print(n2)
-    for i in range(n):
-        temp = n1 + n2
-        print(temp)
-        n1 = n2
-        n2 = temp
-
+    if n == 1:
+        return 0
+    else:
+        for i in range(2, n):
+            next_seq = fib[-1] + fib[-2]
+            fib.append(next_seq)
+            print(fib)
+        return fib[-1]
 
 if __name__ == '__main__':
-    fibinocci(7)
+    print(fibinocci(7))

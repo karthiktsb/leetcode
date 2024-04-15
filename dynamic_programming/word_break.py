@@ -11,9 +11,9 @@ def word_break(s: str, wordDict: list[str]) -> bool:
 
 def work_break_dp(s: str, wordDict: list[str]) -> bool:
     dp = [False] * (len(s) + 1)
-    dp[len(s)] = True
+    dp[-1] = True
 
-    for i in range(len(s) - 1, -1, -1):
+    for i in range(len(s), -1, -1):
         for w in wordDict:
             if i + len(w) <= len(s) and s[i: i + len(w)] == w:
                 dp[i] = dp[i + len(w)]
@@ -24,10 +24,10 @@ def work_break_dp(s: str, wordDict: list[str]) -> bool:
 
 
 if __name__ =='__main__':
-    print(word_break("leetcode", ["leet", "code"]))
-    print(word_break("applepenapple", ["apple", "pen"]))
-    print(word_break("catsandog", ["cats", "dog", "sand", "and", "cat"]))
-    print(word_break("cars", ["cars", "ca", "rs"]))
+    #print(word_break("leetcode", ["leet", "code"]))
+    #print(word_break("applepenapple", ["apple", "pen"]))
+    #print(word_break("catsandog", ["cats", "dog", "sand", "and", "cat"]))
+    #print(word_break("cars", ["cars", "ca", "rs"]))
 
     print(work_break_dp("leetcode", ["leet", "code"]))
     print(work_break_dp("applepenapple", ["apple", "pen"]))

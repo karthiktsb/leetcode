@@ -1,12 +1,12 @@
 def partition(s: str) -> list[list[str]]:
     res = []
 
-    def dfs(path: list[str], index: int):
+    def dfs(path:list[int], index: int):
         if index >= len(s):
             res.append(path.copy())
             return
 
-        for i in range(index + 1, len(s) + 1, 1):
+        for i in range(index + 1, len(s) + 1):
             part = s[index:i]
             if part == part[::-1]:
                 path.append(part)
@@ -17,6 +17,7 @@ def partition(s: str) -> list[list[str]]:
 
     return res
 
+
 if __name__ == '__main__':
     print(partition("aab"))
-
+    print(partition("ab"))

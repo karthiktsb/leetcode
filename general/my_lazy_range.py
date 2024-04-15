@@ -3,13 +3,13 @@ class MyLazyRange:
         self.start = start if start else 0
         self.end = end
         self.step = step
-        self.curr = start
+        self.curr= self.start
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.curr >= self.end:
+        if self.curr > self.end:
             raise StopIteration
 
         current = self.curr

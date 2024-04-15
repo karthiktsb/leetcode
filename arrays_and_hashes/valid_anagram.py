@@ -2,16 +2,17 @@ def valid_anagram(s, t):
     if len(s) != len(t):
         return False
     else:
-        dict = {}
+        dict1 = {}
+
         for c in s:
-            dict[c] = dict.get(c, 0) + 1
+            dict1[c] = dict1.get(c, 0) + 1
 
         for c in t:
-            dict[c] = dict.get(c, 0) - 1
+            dict1[c] = dict1.get(c, 0) - 1
 
-        res = [value for value in dict.values() if value != 0]
+        res = [k for k, v in dict1.items() if v != 0]
 
-        if len(res) > 0:
+        if res:
             return False
         else:
             return True
@@ -19,3 +20,4 @@ def valid_anagram(s, t):
 
 if __name__ == '__main__':
     print(valid_anagram("anagram", "nagaram"))
+    print(valid_anagram("anagram", "nagaran"))

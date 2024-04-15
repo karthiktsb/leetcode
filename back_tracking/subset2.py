@@ -12,7 +12,7 @@ class Solution:
             dfs(path, index + 1)
 
             next_index = index + 1
-            while next_index < len(nums) and nums_sorted[index] == nums_sorted[next_index]:
+            while next_index < len(nums) and nums_sorted[next_index] == nums_sorted[index]:
                 next_index += 1
 
             path.pop()

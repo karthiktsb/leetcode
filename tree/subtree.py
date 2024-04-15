@@ -2,10 +2,10 @@ from binary_tree import BinaryTree
 from tree_node import TreeNode
 
 
-def is_subtree(parent: TreeNode, child: TreeNode) -> TreeNode:
-    subtree_head = TreeNode(0)
+def is_subtree(parent: TreeNode, child: TreeNode) -> bool:
+    subtree_head = None
 
-    def find_in_tree(node: TreeNode, val: int) -> bool:
+    def find_in_tree(node: TreeNode, val: int):
         nonlocal subtree_head
         if node:
             if node.value == val:
@@ -16,7 +16,7 @@ def is_subtree(parent: TreeNode, child: TreeNode) -> TreeNode:
         else:
             return False
 
-    def is_same_tree(a: TreeNode, b: TreeNode) -> bool:
+    def is_same_tree(a: TreeNode, b: TreeNode):
         if a and b:
             return a.value == b.value and is_same_tree(a.left, b.left) and is_same_tree(a.right, b.right)
         else:
@@ -25,12 +25,7 @@ def is_subtree(parent: TreeNode, child: TreeNode) -> TreeNode:
             else:
                 return True
 
-    found = find_in_tree(parent, child.value)
-
-    if found:
-        return is_same_tree(subtree_head, child)
-    else:
-        return found
+    return find_in_tree(parent, child.value) and is_same_tree(subtree_head, child)
 
 
 if __name__ == '__main__':

@@ -4,7 +4,7 @@ from tree_node import TreeNode
 
 def is_balanced(node: TreeNode):
 
-    def dfs(curr: TreeNode):
+    def dfs(curr:TreeNode):
         if curr:
             left = dfs(curr.left)
             right = dfs(curr.right)

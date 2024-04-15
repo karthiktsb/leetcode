@@ -3,12 +3,12 @@ def insert_index(nums: list[int], target: int) -> int:
     right = len(nums) - 1
 
     while left <= right:
-        mid = int(left + (right - left) / 2)
+        mid = left + (right - left) // 2
 
-        if nums[mid] < target:
-            left += 1
+        if nums[mid] <= target:
+            left = mid + 1
         else:
-            right -= 1
+            right = mid - 1
 
     return left
 
