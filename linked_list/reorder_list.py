@@ -28,7 +28,6 @@ def reorder_list(head: ListNode):
         second = temp2
 
 
-
 if __name__ == '__main__':
     my_list = ListNode(1)
     my_list.next = ListNode(2)

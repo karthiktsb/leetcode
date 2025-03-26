@@ -18,7 +18,8 @@ def remove_nth_node(head: ListNode, n: int) -> ListNode:
             first = first.next
         first.next = first.next.next
     else:
-        raise Exception("n is bigger than size of linked list")
+        raise ("N bigger than the linked list")
+
 
     return dummy.next
 

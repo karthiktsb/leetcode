@@ -1,36 +1,32 @@
 class MyMap:
     def __init__(self):
-        self.my_map = [[] for _ in range(100)]
+        self.listed = [[] for _ in range(100)]
 
     def hash_code(self, key):
         return hash(key) % 100
+
+    def __setitem__(self, key, value):
+        index = self.hash_code(key)
+        for elem in self.listed[index]:
+            if elem[0] == key:
+                self.listed[index].remove(elem)
+        self.listed[index].append((key, value))
+        return
+
+    def __getitem__(self, key):
+        index = self.hash_code(key)
+        for elem in self.listed[index]:
+            if elem[0] == key:
+                return elem[1]
+
+        return None
 
     def add(self, key, value):
         self.__setitem__(key, value)
 
     def get(self, key, default):
-        index = self.hash_code(key)
-        for entry in self.my_map[index]:
-            if entry[0] == key:
-                return entry[1]
-        return default
-
-    def __getitem__(self, item):
-        index = self.hash_code(item)
-        for elem in self.my_map[index]:
-            if elem[0] == item:
-                return elem[1]
-
-        return None
-
-    def __setitem__(self, key, value):
-        index = self.hash_code(key)
-        for elem in self.my_map[index]:
-            if elem[0] == key:
-                self.my_map[index].remove(elem)
-
-        self.my_map[index].extend([(key,  value)])
-        return
+        res = self.__getitem__(key)
+        return res if res else default
 
 
 if __name__ == '__main__':

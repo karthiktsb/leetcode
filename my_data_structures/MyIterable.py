@@ -14,19 +14,17 @@ class MyIterable:
         else:
             raise StopIteration
 
-    def append(self, value):
-        self.buffer.append(value)
-        return
-
-    def insert(self, index, value):
-        self.buffer.insert(index, value)
-        return
-
     def __getitem__(self, item):
         return self.buffer[item]
 
     def __setitem__(self, key, value):
         self.buffer[key] = value
+
+    def append(self, value):
+        self.buffer.append(value)
+
+    def insert(self, key, value):
+        self.buffer.insert(key, value)
 
 
 if __name__ == '__main__':
@@ -40,6 +38,5 @@ if __name__ == '__main__':
 
     my_list[2] = 8
 
-    print(my_list[3])
     for i in my_list:
         print(i)

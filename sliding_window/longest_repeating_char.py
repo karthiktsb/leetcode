@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 def character_replacement(s: str, k: int) -> int:
     seen = defaultdict(int)
     l, r = 0, 0

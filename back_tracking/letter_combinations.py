@@ -7,11 +7,10 @@ def letterCombinations(digits: str) -> list[str]:
             res.append(path)
             return
 
-        lkp = dict1.get(digits[index])
+        alpha = dict1[digits[index]]
 
-        for i in lkp:
+        for i in alpha:
             dfs(path + i, index + 1)
-
 
     dfs("",0)
     return res

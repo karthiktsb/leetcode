@@ -1,23 +1,24 @@
 def search(nums: list[int], target: int) -> int:
-    left = 0
-    right = len(nums) - 1
+    l = 0
+    r = len(nums) - 1
 
-    while left <= right:
-        mid = left + (right - left) // 2
+    while l <= r:
+        m = l + (r - l) // 2
 
-        if nums[mid] == target:
-            return mid
+        if target == nums[m]:
+            return m
         else:
-            if nums[mid] > nums[left]:
-                if target > nums[mid] or target < nums[left]:
-                    left = mid + 1
+            if nums[m] >= nums[l]:
+                if target > nums[m] or target < nums[l]:
+                    l = m + 1
                 else:
-                    right = mid - 1
+                    r = m - 1
             else:
-                if target < nums[mid] or target > nums[right]:
-                    right = mid - 1
+                if target < nums[m] or target > nums[r]:
+                    r = m - 1
                 else:
-                    left = mid + 1
+                    l = m + 1
+
     return -1
 
 

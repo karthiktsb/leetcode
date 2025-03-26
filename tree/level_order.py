@@ -12,6 +12,7 @@ def level_order(node: TreeNode):
             dfs(curr.left, level + 1)
             dfs(curr.right, level + 1)
 
+
     dfs(node, 0)
     return result.values()
 

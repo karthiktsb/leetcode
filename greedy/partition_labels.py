@@ -1,14 +1,13 @@
 def partitionLabels(s: str) -> list[int]:
     res = []
-    end = 0
-    size = 0
+    end, size = 0, 0
 
     char_indexes = {}
 
     for c in set(s):
         char_indexes[c] = s.rfind(c)
 
-    for i, c in enumerate(s):
+    for i,c in enumerate(s):
         size += 1
         end = max(end, char_indexes[c])
 

@@ -3,15 +3,15 @@ def two_sum(nums, target):
     right = len(nums) - 1
 
     while left < right:
-        sum = nums[left] + nums[right]
+        summed = nums[left] + nums[right]
 
-        if sum == target:
+        if summed == target:
             return [left, right]
         else:
-            if sum > target:
-                right -= 1
-            else:
+            if summed <  target:
                 left += 1
+            else:
+                right -= 1
 
     return []
 

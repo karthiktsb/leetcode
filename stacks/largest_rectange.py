@@ -26,4 +26,5 @@ def largest_rectangle_area(heights: list[int]) -> int:
 if __name__ == '__main__':
     print(largest_rectangle_area([2,1,5,6,2,3]))
     print(largest_rectangle_area([2, 4]))
+    print(largest_rectangle_area([7,1,7,2,2,4]))
 

@@ -4,13 +4,23 @@ class FibinocciGen:
 
     def gen_fibi(self):
         a, b = 0, 1
-        current = 0
+        curr = 0
 
-        while current < self.n:
-            yield a
+        if curr == 0:
+            yield 0
+            curr += 1
 
-            a,b = b, a + b
-            current += 1
+        if curr == 1:
+            yield 1
+            curr += 1
+
+        while curr < self.n:
+            yield a + b
+
+            temp = a + b
+            a = b
+            b = temp
+            curr += 1
 
     def my_generator(m: list[int]):
         for i in m:

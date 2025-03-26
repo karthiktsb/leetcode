@@ -4,13 +4,14 @@ from tree_node import TreeNode
 def max_diameter(node: TreeNode):
     max_dia = 0
 
-    def dfs(curr: TreeNode):
+    def dfs(curr:TreeNode):
         nonlocal max_dia
         if curr:
             left = dfs(curr.left)
             right = dfs(curr.right)
             max_dia = max(left + right + 1, max_dia)
-            return max(left, right) + 1
+
+            return max(left, right)
         else:
             return 0
 

@@ -4,11 +4,12 @@ def fibinocci(n: int):
     if n == 1:
         return 0
     else:
-        for i in range(2, n):
+        for i in range(n):
             next_seq = fib[-1] + fib[-2]
             fib.append(next_seq)
-            print(fib)
-        return fib[-1]
+
+    return fib
+
 
 if __name__ == '__main__':
     print(fibinocci(7))

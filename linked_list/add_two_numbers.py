@@ -18,9 +18,8 @@ def add_numbers(head1: ListNode, head2: ListNode) -> ListNode:
                 summed = node1.value + carry
                 node1 = node1.next
             else:
-                if node2:
-                    summed = node2.value + carry
-                    node2 = node2.next
+                summed = node2.value + carry
+                node2 = node2.next
 
         if summed > 9:
             carry = summed // 10
@@ -31,7 +30,7 @@ def add_numbers(head1: ListNode, head2: ListNode) -> ListNode:
         temp.next = ListNode(summed)
         temp = temp.next
 
-    if carry > 0:
+    if carry:
         temp.next = ListNode(carry)
 
     return result.next
@@ -45,6 +44,21 @@ if __name__ == '__main__':
     my_list1 = ListNode(5)
     my_list1.next = ListNode(6)
     my_list1.next.next = ListNode(4)
+
+    res = add_numbers(my_list, my_list1)
+
+    node = res
+    while node:
+        print(node.value)
+        node = node.next
+
+    my_list = ListNode(1)
+    my_list.next = ListNode(2)
+    my_list.next.next = ListNode(3)
+
+    my_list1 = ListNode(4)
+    my_list1.next = ListNode(5)
+    my_list1.next.next = ListNode(6)
 
     res = add_numbers(my_list, my_list1)
 

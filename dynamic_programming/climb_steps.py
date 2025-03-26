@@ -5,9 +5,9 @@ def climb_stairs(n: int) -> int:
     n1, n2 = 2, 3
 
     for i in range(4, n + 1):
-        temp = n1 + n2
+        tmp = n1 + n2
         n1 = n2
-        n2 = temp
+        n2 = tmp
 
     return n2
 

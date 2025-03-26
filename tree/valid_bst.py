@@ -5,7 +5,7 @@ from tree_node import TreeNode
 def is_valid_bst(node: TreeNode) -> bool:
     def dfs(curr: TreeNode):
         if curr:
-            if (curr.left and curr.left.value > curr.value) or (curr.right and curr.right.value < curr.value):
+            if (curr.left and curr.value < curr.left.value) or (curr.right and curr.value > curr.right.value):
                 return False
             else:
                 return dfs(curr.left) and dfs(curr.right)

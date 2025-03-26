@@ -5,8 +5,6 @@ class Animal:
     def speak(self):
         print("My name is {}".format(self.name))
 
-    
-
 
 class Dog(Animal):
     def __init__(self, name, breed):

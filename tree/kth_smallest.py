@@ -35,11 +35,7 @@ def kth_largest(node: TreeNode, k: int):
             dfs(curr.left)
 
     dfs(node)
-
-    if len(result) == k:
-        return result[-1]
-    else:
-        return -1
+    return result[-1] if len(result) == k else -1
 
 
 if __name__ == '__main__':
@@ -54,3 +50,14 @@ if __name__ == '__main__':
 
     print(kth_smallest(node, 6))
     print(kth_largest(node, 1))
+
+    my_list1 = [1,2,3,4,5,6,7,8]
+    my_tree1 = BinaryTree()
+
+    for i in my_list1:
+        my_tree1.add(i)
+
+    node1 = my_tree1.get_head()
+    print(kth_smallest(node1, 8))
+
+

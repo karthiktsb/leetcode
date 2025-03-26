@@ -3,12 +3,12 @@ def get_max_area(grid: list[list]) -> int:
     visit = set()
     row, col = len(grid), len(grid[0])
 
-    def dfs(r, c):
+    def dfs(r:int, c:int):
         if (
-                r not in range(row)
-                or c not in range(col)
-                or grid[r][c] == 0
-                or (r, c) in visit
+            r not in range(row) or
+            c not in range(col) or
+            grid[r][c] == 0 or
+            (r, c) in visit
         ):
             return 0
 
@@ -17,15 +17,22 @@ def get_max_area(grid: list[list]) -> int:
 
     for r in range(row):
         for c in range(col):
-            if grid[r][c] == 1 and (r, c) not in visit:
-                max_area = max(dfs(r, c), max_area)
+            if grid[r][c] == 1 and (r,c) not in visit:
+                max_area = max(max_area, dfs(r, c))
 
     return max_area
 
 
 if __name__ == '__main__':
-    grid1 = [[0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-            [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0], [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
-            [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]]
+    grid1 = [[0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+             [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+             [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+             [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+             [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
+             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+             [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+             [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]]
     print(get_max_area(grid1))
+
+    grid2 = [[1, 0, 1], [0, 1, 0], [0, 1, 0]]
+    print(get_max_area(grid2))

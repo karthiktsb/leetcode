@@ -14,7 +14,6 @@ def combinationSum(candidates: list[int], target: int) -> list[list[int]]:
         path.pop()
         dfs(path, index + 1, summed)
 
-
     dfs([], 0 , 0)
     return res
 

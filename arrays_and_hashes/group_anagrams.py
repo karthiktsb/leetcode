@@ -1,13 +1,14 @@
 from collections import defaultdict
 
+
 def group_anagrams(strs):
-    res = defaultdict(list)
+    dict = defaultdict(list)
 
     for str in strs:
-        sorted_word = ''.join(sorted(str))
-        res[sorted_word].append(str)
+        str_sorted = ''.join(sorted(str))
+        dict[str_sorted].append(str)
 
-    return res.values()
+    return list(dict.values())
 
 
 if __name__ == '__main__':

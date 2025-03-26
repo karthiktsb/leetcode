@@ -1,21 +1,21 @@
 def three_sum(nums, target):
-    result = []
-    nums_sorted = sorted(nums)
+    res = []
+    nums_sort = sorted(nums)
 
     for i in range(len(nums) - 2):
-        if i == 0 or nums_sorted[i] != nums_sorted[i - 1]:
+        if i == 0 or nums_sort[i] != nums_sort[i - 1]:
             left = i + 1
-            right = len(nums_sorted) - 1
+            right = len(nums_sort) - 1
 
             while left < right:
-                summed = nums_sorted[i] + nums_sorted[left] + nums_sorted[right]
+                summed = nums_sort[i] + nums_sort[left] + nums_sort[right]
                 if summed == target:
-                    result.append([nums_sorted[i], nums_sorted[left], nums_sorted[right]])
+                    res.append([nums_sort[i], nums_sort[left], nums_sort[right]])
 
-                    while nums_sorted[left] == nums_sorted[left + 1]:
+                    while nums_sort[left] == nums_sort[left + 1]:
                         left += 1
 
-                    while nums_sorted[right] == nums_sorted[right - 1]:
+                    while nums_sort[right] == nums_sort[right - 1]:
                         right -= 1
 
                     left += 1
@@ -26,10 +26,10 @@ def three_sum(nums, target):
                     else:
                         right -= 1
 
-    return result
+    return res
 
 
 if __name__ == '__main__':
     print(three_sum([-1,0,1,2,-1,-4], 0))
-    print(three_sum([1,-1,-1,0], 18))
+    print(three_sum([1,-1,-1,16, 1], 18))
     print(three_sum([1, -1, -1, 0],-2))

@@ -13,14 +13,12 @@ class Solution:
             if close_count < open_count:
                 dfs(path + ")", open_count, close_count + 1)
 
-
         dfs("", 0, 0)
-
         return res
 
 
 if __name__ == '__main__':
     sol = Solution()
 
-    print(sol.generate_parenthesis(5))
+    print(sol.generate_parenthesis(4))
     print(sol.generate_parenthesis(3))

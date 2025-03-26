@@ -1,9 +1,10 @@
 class Solution:
     def subsets(self, nums: list[int]) -> list[list[int]]:
         res = []
+        len_nums =  len(nums)
 
-        def dfs(path: list[int], index: int):
-            if index >= len(nums):
+        def dfs(path: list[int], index:int):
+            if index >= len_nums:
                 res.append(path.copy())
                 return
 

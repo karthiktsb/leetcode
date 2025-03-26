@@ -3,6 +3,7 @@ from tree_node import TreeNode
 
 
 def is_same_tree(a: TreeNode, b:TreeNode) -> bool:
+
     def dfs(x: TreeNode, y: TreeNode):
         if x and y:
             if x.value == y.value:
@@ -30,7 +31,7 @@ if __name__ == '__main__':
 
     my_tree2 = BinaryTree()
 
-    my_list2 = [0, -1, 10, 15, -15, 9]
+    my_list2 = [0, -1, 10, 15, -15, 9, 16]
 
     for i in my_list2:
         my_tree2.add(i)

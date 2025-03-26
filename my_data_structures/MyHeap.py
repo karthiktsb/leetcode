@@ -1,8 +1,8 @@
 class MyHeap:
     def __init__(self, order):
         self.buffer = []
-        if order.upper() != "ASC" and order.upper() != "DESC":
-            raise Exception("Order has to be asc or desc")
+        if order not in ["asc", "desc"]:
+            raise Exception("Order should be ASC or DESC")
         self.order = order
 
     def enqueue(self, value):
@@ -14,30 +14,30 @@ class MyHeap:
         if not self.buffer:
             return 0
 
-        l, r = 0, len(self.buffer) - 1
+        l, r = 0 , len(self.buffer) - 1
 
         while l <= r:
-            mid = l + (r - l) // 2
+            m = l + (r - l) // 2
 
-            if self.buffer[mid] == value:
-                return mid
+            if self.buffer[m] == value:
+                return m
             else:
-                if value > self.buffer[mid]:
-                    l = mid + 1
+                if value > self.buffer[m]:
+                    l = m + 1
                 else:
-                    r = mid - 1
+                    r = m - 1
 
         return l
 
     def dequeue(self):
-        if self.order == "ASC":
-            elem = self.buffer[0]
-            self.buffer.pop(0)
-            return elem
+        if self.buffer:
+            if self.order == "asc":
+                return self.buffer.pop(0)
+            else:
+                return self.buffer.pop()
         else:
-            elem = self.buffer[-1]
-            self.buffer.pop()
-            return elem
+            None
+
 
     def head(self):
         if self.order == "ASC":
@@ -62,3 +62,16 @@ if __name__ =='__main__':
     print(pq.head())
     print(pq.dequeue())
     print(pq.head())
+
+    pq1 = MyHeap("asc")
+
+    pq1.enqueue(5)
+    pq1.enqueue(3)
+    pq1.enqueue(1)
+    pq1.enqueue(2)
+
+    print(pq1.dequeue())
+    print(pq1.dequeue())
+    print(pq1.dequeue())
+    print(pq1.dequeue())
+    print(pq1.dequeue())

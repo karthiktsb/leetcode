@@ -7,7 +7,7 @@ def good_nodes(node: TreeNode):
     def dfs(curr: TreeNode, max_val: int):
         if curr:
             current = 1 if curr.value >= max_val else 0
-            curr_max = max(curr.value, max_val)
+            curr_max = max(max_val, curr.value)
             return current + dfs(curr.left, curr_max) + dfs(curr.right, curr_max)
         else:
             return 0

@@ -27,3 +27,4 @@ if __name__ == '__main__':
     print(cls3.get_instance_count())
     cls1.print()
     print(MyClass.get_class_count())
+    cls2.print()

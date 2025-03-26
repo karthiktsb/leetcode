@@ -8,11 +8,12 @@ def factorial(n: int):
 
 def fact(n: int):
     if n == 1:
-        return n
+        return 1
     else:
-        return fact(n - 1) * fact(n - 2)
+        return n * fact(n - 1)
 
 
 if __name__ == '__main__':
+    print(factorial(5))
     print(factorial(10))
-    #print(fact(5))
+    print(fact(5))

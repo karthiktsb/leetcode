@@ -3,6 +3,7 @@ from list_node import ListNode
 
 def merge_list(head1: ListNode, head2: ListNode) -> ListNode:
     result, node1, node2 = None, head1, head2
+
     if node1 and node2:
         if node1.value <= node2.value:
             result = node1
@@ -24,15 +25,14 @@ def merge_list(head1: ListNode, head2: ListNode) -> ListNode:
         if node1:
             temp.next = node1
         else:
-            temp.next = node2
-
+            if node2:
+                temp.next = node2
         return result
     else:
         if head1:
             return head1
         else:
             return head2
-
 
 
 if __name__ == '__main__':

@@ -3,16 +3,16 @@ from tree_node import TreeNode
 
 
 def is_subtree(parent: TreeNode, child: TreeNode) -> bool:
-    subtree_head = None
+    sub_tree = None
 
-    def find_in_tree(node: TreeNode, val: int):
-        nonlocal subtree_head
+    def find_in_tree(node: TreeNode, value: int):
+        nonlocal sub_tree
         if node:
-            if node.value == val:
-                subtree_head = node
+            if node.value == value:
+                sub_tree = node
                 return True
             else:
-                return find_in_tree(node.left, val) or find_in_tree(node.right, val)
+                return find_in_tree(node.left, value) or find_in_tree(node.right, value)
         else:
             return False
 
@@ -25,7 +25,7 @@ def is_subtree(parent: TreeNode, child: TreeNode) -> bool:
             else:
                 return True
 
-    return find_in_tree(parent, child.value) and is_same_tree(subtree_head, child)
+    return find_in_tree(parent, child.value) and is_same_tree(sub_tree, child)
 
 
 if __name__ == '__main__':

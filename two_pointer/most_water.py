@@ -4,8 +4,8 @@ def most_water(height):
     max_area = 0
 
     while left < right:
-        current_area = min(height[left], height[right]) * (right - left)
-        max_area = max(max_area, current_area)
+        curr_area = min(height[left], height[right]) * (right - left)
+        max_area = max(max_area, curr_area)
 
         if height[left] < height[right]:
             left += 1

@@ -7,10 +7,11 @@ def longest_seq(nums):
             while c in nums:
                 c += 1
                 curseq += 1
-            res = max(curseq, res)
+
+            res = max(res, curseq)
 
     return res
 
 
 if __name__ == '__main__':
-    print(longest_seq([99,100,4,200,1,3,2,103,104,102,101,105,106]))
+    print(longest_seq([99,100,4,200,1,3,2,103,104,102,101,105,106,107]))

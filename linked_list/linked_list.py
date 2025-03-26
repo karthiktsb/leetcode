@@ -1,10 +1,11 @@
 from list_node import ListNode
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
 
-    def append(self, value) -> None:
+    def append(self, value):
         if self.head:
             node = self.head
             while node.next:
@@ -20,7 +21,7 @@ class LinkedList:
                 print(node.value)
                 node = node.next
         else:
-            print("Nothing to display")
+            print("Empty List")
 
 
 if __name__ == '__main__':

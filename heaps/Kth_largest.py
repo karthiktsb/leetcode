@@ -2,18 +2,33 @@ import heapq
 
 
 def kth_largest(nums: list[int], k: int) -> int:
-    return heapq.nlargest(k, nums)
+    return heapq.nlargest(k, nums)[-1]
 
 
 def kth_chatgpt(nums: list[int], k: int) -> int:
     min_heap = nums[:k]
     heapq.heapify(min_heap)
 
-    for num in nums:
+    for num in nums[k:]:
         heapq.heappush(min_heap, num)
         heapq.heappop(min_heap)
 
-    return min_heap
+    return min_heap[0]
+
+
+def mine(nums, k):
+    res = []
+
+    for n in nums:
+        if res and n > res[-1]:
+            res.append(n)
+            res.sort(reverse=True)
+            if len(res) >= k:
+                res.pop()
+        else:
+            res.append(n)
+
+    return res[k - 1]
 
 
 
@@ -24,7 +39,9 @@ def func(l1):
 
 if __name__ == '__main__':
     print(kth_largest([3, 2, 1, 5, 6, 4], 2))
-    print(kth_chatgpt([3, 2, 1, 5, 6, 4], 2))
+    print(kth_chatgpt([3, 2, 1, 5, 6, 4, 7], 3))
+    print(mine([3, 2, 1, 5, 6, 4, 7], 3))
+    print(mine([3, 2, 1, 5, 6, 4, 7], 1))
 
     a = [(1, 2, 3, 4), (3, 7, 5, 2), (6, 4, 2, 3)]
 

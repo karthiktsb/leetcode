@@ -3,17 +3,24 @@ def numIslands(grid: list[list]) -> int:
         return 0
 
     islands = 0
-    visit = set()
     row, col = len(grid), len(grid[0])
+    visit = set()
 
     def dfs(r, c):
-        if r not in range(row) or c not in range(col) or grid[r][c] == "0" or (r, c)in visit:
+        if (
+            r not in range(row) or
+            c not in range(col) or
+            grid[r][c] == "0" or
+            (r,c) in visit
+        ):
             return
 
         visit.add((r, c))
-        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+
         for dr, dc in directions:
             dfs(r + dr, c + dc)
+
 
     for r in range(row):
         for c in range(col):
@@ -25,8 +32,16 @@ def numIslands(grid: list[list]) -> int:
 
 
 if __name__ == "__main__":
-    grid1 = [["1","1","1","1","0"], ["1","1","0","1","0"], ["1","1","0","0","0"], ["0","0","0","0","0"]]
+    grid1 = [
+        ["1","1","1","1","0"],
+        ["1","1","0","1","0"],
+        ["1","1","0","0","0"],
+        ["0","0","0","0","0"]]
     print(numIslands(grid1))
 
-    grid2 = [["1", "1", "0", "0", "0"], ["1", "1", "0", "0", "0"], ["0", "0", "1", "0", "0"], ["0", "0", "0", "1", "1"]]
+    grid2 = [
+        ["1", "1", "0", "0", "0"],
+        ["1", "1", "0", "0", "0"],
+        ["0", "0", "1", "0", "0"],
+        ["0", "0", "0", "1", "1"]]
     print(numIslands(grid2))

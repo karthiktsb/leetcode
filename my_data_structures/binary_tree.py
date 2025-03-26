@@ -8,6 +8,7 @@ class BinaryTree:
     def add(self, value):
         if self.head:
             node = self.head
+
             while node:
                 if node.value == value:
                     break
@@ -26,41 +27,31 @@ class BinaryTree:
             self.head = TreeNode(value)
 
     def print(self):
-        if self.head:
-            def dfs(node):
-                if node:
-                    dfs(node.left)
-                    print(node.value)
-                    dfs(node.right)
+        def dfs(node: TreeNode):
+            if node:
+                dfs(node.left)
+                print(node.value)
+                dfs(node.right)
 
-            dfs(self.head)
+        dfs(self.head)
 
     def load_list(self, input):
         for i in input:
             self.add(i)
 
     def find(self, value):
-        if not self.head:
-            return False
+        if self.head:
+            node = self.head
 
-        node = self.head
-        while node:
-            if node.value == value:
-                return True
-
-            if value > node.value:
-                if node.right:
-                    node = node.right
+            while node:
+                if node.value == value:
+                    return True
                 else:
-                    return False
-            else:
-                if node.left:
-                    node = node.left
-                else:
-                    return False
-
+                    if value > node.value:
+                        node = node.right
+                    else:
+                        node = node.left
         return False
-
 
 
 if __name__ == '__main__':
@@ -78,3 +69,11 @@ if __name__ == '__main__':
     print(bt.find(454))
     bt.print()
 
+
+    bt1 = BinaryTree()
+
+    bt1.load_list([5,4,6,3,7])
+
+    bt1.print()
+    print(bt1.find(7))
+    print(bt1.find(9))

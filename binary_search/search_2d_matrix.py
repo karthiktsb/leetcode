@@ -1,23 +1,22 @@
-def search(nums: list[list[int]], target: int) -> int:
-    m = len(nums)
-    n = len(nums[0])
-    left = 0
-    right = m * n - 1
+def search(matrix: list[list[int]], target: int) -> int:
+    m = len(matrix)
+    n = len(matrix[0])
+    l = 0
+    r = (m * n) - 1
 
-    while left <= right:
-        mid = left + (right - left) // 2
-        mid_value = nums[m //n][m % n]
+    while l <= r:
+        mid = l + (r - l) // 2
+        mid_value = matrix[mid // n][mid % n]
 
-        if mid_value == target:
+        if target == mid_value:
             return True
         else:
             if target > mid_value:
-                left = mid + 1
+                l = mid + 1
             else:
-                right = mid - 1
+                r = mid - 1
 
     return False
-
 
 
 if __name__ == '__main__':

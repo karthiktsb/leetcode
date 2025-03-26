@@ -5,11 +5,11 @@ def valid_palindrome(str):
     while left < right:
         if str[left] != str[right]:
             return False
-
         left += 1
         right -= 1
 
     return True
+
 
 if __name__ == '__main__':
     print(valid_palindrome("ababa"))
