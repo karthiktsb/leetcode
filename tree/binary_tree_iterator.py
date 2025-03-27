@@ -9,23 +9,26 @@ class btIterator:
 
     def next(self):
         if not self.hasNext():
-            raise Exception("No More Elements")
+            return StopIteration()
 
-        node = self.stack.pop()
+        curr = self.stack.pop()
 
-        if node.right:
-            self.left_dfs(node.right)
+        if curr.right:
+            self.left_dfs(curr.right)
 
-        return node.value
+        return curr.value
+
 
     def hasNext(self):
         if self.stack:
             return True
+        else:
+            return False
 
     def left_dfs(self, curr):
-        while curr:
+        if curr:
             self.stack.append(curr)
-            curr = curr.left
+            self.left_dfs(curr.left)
 
 
 if __name__ == '__main__':

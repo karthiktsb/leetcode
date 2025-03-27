@@ -1,18 +1,17 @@
 def all_possible_sum(num: int) -> list[int]:
     res = []
 
-    def dfs(path: list[int], total: int, curr: int):
-        if total == num:
-            res.append(path.copy())
+    def dfs(path: list[int], total: int, index: int):
+        if total >= num:
+            if total == num:
+                res.append(path.copy())
             return
 
-        if total > num or curr > num:
-            return
-
-        path.append(curr)
-        dfs(path, total + curr, curr)
-        path.pop()
-        dfs(path, total, curr + 1)
+        if index <= num:
+            path.append(index)
+            dfs(path, total + index, index)
+            path.pop()
+            dfs(path, total, index + 1)
 
     dfs([], 0, 1)
     return res

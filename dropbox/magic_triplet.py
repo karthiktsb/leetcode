@@ -2,27 +2,27 @@
 
 # O(n^2 + n log n)
 def magic_triplet(nums: list[int]):
-    nums_sorted = sorted(nums)
-    result = []
+    nums.sort()
+    res = []
 
-    for i in range(len(nums_sorted) - 3):
+    for i in range(len(nums) - 3):
         l = i + 1
-        r = len(nums_sorted) - 1
+        r = len(nums) - 1
 
         while l < r:
-            summed = nums_sorted[i] + nums_sorted[l] + nums_sorted[r]
+            total = nums[i] + nums[l] + nums[r]
 
-            if summed == 0:
-               result.append([nums_sorted[i], nums_sorted[l], nums_sorted[r]])
-               l += 1
-               r -= 1
+            if total == 0:
+                res.append([nums[i], nums[l], nums[r]])
+                l += 1
+                r -= 1
             else:
-                if summed < 0:
+                if total < 0:
                     l += 1
                 else:
                     r -= 1
 
-    return result
+    return res
 
 
 # O(n^3)
@@ -40,21 +40,23 @@ def magic_triplet_brute_force(nums: list[int]):
 def magic_triplet_back_tracking(nums: list[int]):
     result = []
 
-    def dfs(path: list[int], index: int, summed: int):
+    def dfs(path: list[int], total: int, index: int):
         if len(path) == 3:
-            if summed == 0:
+            if total == 0:
                 result.append(path.copy())
             return
 
         if index < len(nums):
             path.append(nums[index])
-            dfs(path, index + 1, summed + nums[index])
+            dfs(path, total + nums[index], index + 1)
             path.pop()
-            dfs(path, index + 1, summed)
+            dfs(path, total, index + 1)
 
     dfs([], 0, 0)
-
     return result
+
+
+
 
 
 if __name__ == "__main__":

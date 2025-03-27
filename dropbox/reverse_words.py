@@ -1,13 +1,11 @@
 
 def reverse_words(s: str):
     l = s.split(" ")
-    result = []
 
-    for i in range(len(l) - 1, -1, -1):
-        word = l.pop(0)
-        result.insert(0, word)
+    for i in range(len(l)):
+        l.insert(0, l.pop(i))
 
-    return " ".join(result)
+    return " ".join(l)
 
 
 if __name__ == "__main__":

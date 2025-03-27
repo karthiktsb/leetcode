@@ -16,17 +16,17 @@ def display_graph_nodes(node: GraphNode, seen):
                 display_graph_nodes(i, seen)
 
 
-def clone_graph(node: GraphNode, seen):
+def clone_graph(node: GraphNode, seen, version):
     if not node:
         return None
 
-    root_new = GraphNode(node.data, 2)
-    seen[node] = root_new
+    root_new = GraphNode(node.data, version)
+    seen[node] = node
 
     for p in node.neighbors:
         x = seen.get(p)
         if not x:
-            root_new.neighbors.append(clone_graph(p, seen))
+            root_new.neighbors.append(clone_graph(p, seen, version))
         else:
             root_new.neighbors.append(x)
 
@@ -56,13 +56,13 @@ if __name__ == "__main__":
 
     display_graph_nodes(root, {})
 
-    new_root = clone_graph(root, {})
+    new_root = clone_graph(root, {}, 2)
 
     display_graph_nodes(new_root, {})
     display_graph_nodes(root, {})
 
     root2 = GraphNode(80, 3)
-    root3 = clone_graph(root2, {})
+    root3 = clone_graph(root2, {}, 5)
 
     display_graph_nodes(root3, {})
 
