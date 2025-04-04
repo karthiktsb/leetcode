@@ -91,6 +91,33 @@ def main():
     print("------------")
     print(df1)
 
+    #nth largest, n largest and n smallest in a group
+    print("------------")
+    sdf = pd.DataFrame({
+        'group': ['A', 'A', 'A', 'B', 'B', 'B', 'B'],
+        'value': [1, 3, 5, 7, 2, 6, 6]
+    })
+
+    print(sdf["value"].nlargest(2))
+    print(sdf["value"].nsmallest(3))
+    print("------------")
+    # Second largest
+    print(sdf["value"].nlargest(2).iloc[1])
+
+    # Third smallest
+    print(sdf["value"].nsmallest(3).iloc[2])
+    print("------------")
+    #n largest and smallest in a group
+    print(sdf.groupby("group")["value"].nlargest(3))
+    print(sdf.groupby("group")["value"].nsmallest(2))
+    print("------------")
+    # nth largest and smallest in a group
+    print(sdf.groupby("group")["value"].nlargest(2).groupby("group").nth(1).reset_index(level=1, drop=True))
+    print(sdf.groupby("group")["value"].nsmallest(3).groupby("group").nth(2).reset_index(level=1, drop=True))
+
+    # count distinct values
+    print(sdf["value"].nunique())
+
 main()
 
 
