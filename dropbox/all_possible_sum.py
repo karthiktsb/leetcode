@@ -13,6 +13,7 @@ def all_possible_sum(num: int) -> list[int]:
             path.pop()
             dfs(path, total, index + 1)
 
+
     dfs([], 0, 1)
     return res
 

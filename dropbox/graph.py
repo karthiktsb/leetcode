@@ -6,14 +6,12 @@ class GraphNode:
 
 
 def display_graph_nodes(node: GraphNode, seen):
-    if node is not None:
-        if seen and node in seen:
-            return
-        else:
+    if node:
+        if node not in seen:
             seen[node] = node
             print(str(node.data) + " - " + str(node.version))
-            for i in node.neighbors:
-                display_graph_nodes(i, seen)
+            for p in node.neighbors:
+                display_graph_nodes(p, seen)
 
 
 def clone_graph(node: GraphNode, seen, version):
@@ -25,10 +23,10 @@ def clone_graph(node: GraphNode, seen, version):
 
     for p in node.neighbors:
         x = seen.get(p)
-        if not x:
-            root_new.neighbors.append(clone_graph(p, seen, version))
-        else:
+        if x:
             root_new.neighbors.append(x)
+        else:
+            root_new.neighbors.append(clone_graph(p, seen, version))
 
     return root_new
 

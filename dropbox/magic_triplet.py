@@ -5,7 +5,7 @@ def magic_triplet(nums: list[int]):
     nums.sort()
     res = []
 
-    for i in range(len(nums) - 3):
+    for i in range(len(nums) - 2):
         l = i + 1
         r = len(nums) - 1
 
@@ -14,6 +14,7 @@ def magic_triplet(nums: list[int]):
 
             if total == 0:
                 res.append([nums[i], nums[l], nums[r]])
+
                 l += 1
                 r -= 1
             else:
@@ -23,6 +24,8 @@ def magic_triplet(nums: list[int]):
                     r -= 1
 
     return res
+
+
 
 
 # O(n^3)

@@ -1,5 +1,11 @@
-from binary_tree import BinaryTree
-from tree_node import TreeNode
+from tree.binary_tree import BinaryTree
+
+
+class TreeNode:
+    def __init__(self, value: int):
+        self.value = value
+        self.left = None
+        self.right = None
 
 
 class btIterator:

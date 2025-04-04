@@ -24,6 +24,7 @@ def bucket_sort(nums: list[int]):
 
     return res
 
+
 def main():
     print(bucket_sort([15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0,-1]))
     print(bucket_sort([15, 13, 12, 10, 8, 7, 5, 4, 2, 1, 0, -1]))

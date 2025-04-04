@@ -21,6 +21,6 @@ def quick_sort(nums: list[int]):
 def main():
     print(quick_sort([5, 4, 3, 2, 1]))
     print(quick_sort([5, -4, 3, -2, -1]))
-
+    print([1,2] + [3,4])
 
 main()

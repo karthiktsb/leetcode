@@ -3,16 +3,16 @@ from tree_node import TreeNode
 
 
 def is_valid_bst(node: TreeNode) -> bool:
-    def dfs(curr: TreeNode):
-        if curr:
-            if (curr.left and curr.value < curr.left.value) or (curr.right and curr.value > curr.right.value):
-                return False
-            else:
-                return dfs(curr.left) and dfs(curr.right)
-        else:
+    def valid(node, left, right):
+        if not node:
             return True
+        if not (left < node.val < right):
+            return False
 
-    return dfs(node)
+        return valid(node.left, left, node.val) and valid(node.right, node.val, right)
+
+
+    return valid(node, float("-inf"), float("inf"))
 
 
 if __name__ == '__main__':

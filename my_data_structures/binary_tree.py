@@ -30,8 +30,9 @@ class BinaryTree:
         def dfs(node: TreeNode):
             if node:
                 dfs(node.left)
-                print(node.value)
                 dfs(node.right)
+                print(node.value)
+
 
         dfs(self.head)
 
@@ -57,23 +58,9 @@ class BinaryTree:
 if __name__ == '__main__':
     bt = BinaryTree()
 
-    bt.add(10)
+    bt.add(1)
+    bt.add(2)
+    bt.add(3)
+    bt.add(4)
     bt.add(5)
-    bt.add(15)
-    bt.add(25)
-    bt.add(-5)
-
-    print(bt.find(6))
-
-    bt.load_list([34,45,65,34,4,545,345,434,234,24,4,4,54,43,34,343,234,234,234,4545,43232423,234,234,123,12313,13324,454])
-    print(bt.find(454))
     bt.print()
-
-
-    bt1 = BinaryTree()
-
-    bt1.load_list([5,4,6,3,7])
-
-    bt1.print()
-    print(bt1.find(7))
-    print(bt1.find(9))

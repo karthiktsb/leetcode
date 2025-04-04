@@ -9,35 +9,32 @@ class LRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
         self.cache = {}
-        self.head = ListNode(0)
-        self.tail = ListNode(0)
+        self.head = ListNode(-1)
+        self.tail = ListNode(-1)
         self.head.next = self.tail
         self.tail.prev = self.head
         self.count = 0
 
     def add(self, key):
         node = ListNode(key)
-        node.prev = self.head
         node.next = self.head.next
+        self.head.next.prev = node
         self.head.next = node
-        node.next.prev = node
+        node.prev = self.head
 
     def remove(self, key):
-        node = self.head.next
-        while node != self.tail:
+        node = self.head
+        while node:
             if node.val == key:
                 node.prev.next = node.next
                 node.next.prev = node.prev
             node = node.next
 
     def get(self, key: int) -> int:
-        if self.count > 0:
+        if key in self.cache:
             self.remove(key)
             self.add(key)
-            if key in self.cache:
-                return self.cache[key]
-            else:
-                return None
+            return self.cache[key]
         else:
             return None
 
@@ -47,6 +44,7 @@ class LRUCache:
             self.remove(self.tail.prev.val)
             self.add(key)
             self.cache[key] = value
+            self.count += 1
         else:
             self.add(key)
             self.cache[key] = value

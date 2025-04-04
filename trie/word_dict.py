@@ -40,6 +40,7 @@ class WordDict:
 def main():
     wd = WordDict()
 
+    print(wd.search("abcd"))
     wd.insert("apple")
     wd.insert("google")
     wd.insert("lunch")

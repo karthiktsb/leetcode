@@ -7,9 +7,7 @@ def invert_tree(head: TreeNode):
         if node:
             dfs(node.left)
             dfs(node.right)
-            temp = node.left
-            node.left = node.right
-            node.right = temp
+            node.left, node.right = node.right, node.left
 
     dfs(head)
 

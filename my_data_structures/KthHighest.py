@@ -40,15 +40,10 @@ def kth_largest_new(k: int, in_list: list[int]) -> int:
     result = []
 
     for i in range(len(in_list)):
-        n = in_list[i]
+        index = find_insert_index(result, in_list[i])
+        result.insert(index, in_list[i])
         if i > k - 1:
-            if n > result[0]:
-                result.pop(0)
-                index = find_insert_index(result, n)
-                result.insert(index, n)
-        else:
-            index = find_insert_index(result, n)
-            result.insert(index, n)
+            result.pop(0)
 
     return result[0]
 
