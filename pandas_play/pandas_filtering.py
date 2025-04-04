@@ -2,7 +2,7 @@ import pandas as pd
 
 
 def main():
-    df = pd.read_csv("student.csv")
+    df = pd.read_csv("../pandas_play/student.csv")
     print(df)
     print("---------")
     print(df[df["name"].str.contains("J")])

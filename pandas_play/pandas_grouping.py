@@ -3,7 +3,7 @@ import os
 import pandas as pd
 
 def main():
-    df = pd.read_csv("student.csv")
+    df = pd.read_csv("../pandas_play/student.csv")
     df1 = df.sort_values(by=["year", "gender", "mark"], ascending=[True, True, False])
     grouped_df = df.groupby(["gender"])
 
